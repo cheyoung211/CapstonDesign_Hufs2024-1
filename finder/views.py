@@ -4,5 +4,5 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
-class testimport(TemplateView):
-    template_name = 'urltest.html'
+class finderimport(TemplateView):
+    template_name = 'finder.html'

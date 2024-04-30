@@ -5,5 +5,5 @@ from . import views
 app_name = "finder"
 
 urlpatterns = [
-    path('', views.testimport.as_view(), name="test")
+    path('', views.finderimport.as_view(), name="finder")
 ]
