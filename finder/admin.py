@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Disease, TranslatedDisease
+from .models import Disease, Symptom
 
 # Register your models here.
 
 admin.site.register(Disease)
-admin.site.register(TranslatedDisease)
+admin.site.register(Symptom)
