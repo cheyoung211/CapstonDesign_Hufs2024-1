@@ -31,11 +31,49 @@ class Symptom(models.Model):
     upperbody = models.CharField(max_length=100, null=True, blank=True)
     belly = models.CharField(max_length=100, null=True, blank=True)
     pelvis = models.CharField(max_length=100, null=True, blank=True)
-    arm = models.CharField(max_length=100, null=True, blank=True)
     onlyarm = models.CharField(max_length=100, null=True, blank=True)
     hand = models.CharField(max_length=100, null=True, blank=True)
-    leg = models.CharField(max_length=100, null=True, blank=True)
     onlyleg = models.CharField(max_length=100, null=True, blank=True)
     foot = models.CharField(max_length=100, null=True, blank=True)
     def __str__(self):
+        return self.Symptom
+
+class HeadSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class UpperbodySymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class BellySymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class PelvisSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class OnlyArmSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class HandSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class OnlyLegSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class FootSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
         return self.Symptom
