@@ -16,4 +16,5 @@ urlpatterns = [
     path('leg/', views.LegImport.as_view(), name="leg"),
     path('leg/onlyleg/', views.OnlyLegImport.as_view(), name="onlyleg"),
     path('leg/foot/', views.FootImport.as_view(), name="foot"),
+    path('headsearch/', views.HeadSearch.as_view(), name='headsearch'),
 ]
