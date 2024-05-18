@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="belly">배</a>
+    <a href="pelvis">골반</a>
+    <form action="{% url 'finder:bellypelvissearch' %}" method="get">
+        {% for symptom in belly_pelvis_symptoms %}
+            <label>
+                <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
+                       {% if symptom.Symptom in selected_symptoms %} checked {% endif %}>
+                {{ symptom.Symptom }}
+            </label><br>
+        {% endfor %}
+        <button type="submit">Search Diseases</button>
+    </form>
+
+    <!-- 검색 결과 표시 -->
+    <h1>Disease Matches</h1>
+    {% if diseases %}
+        <ul>
+            {% for disease in diseases %}
+                <li>{{ disease }} - Matches</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching diseases found.</p>
+    {% endif %}
+</body>
+</html>

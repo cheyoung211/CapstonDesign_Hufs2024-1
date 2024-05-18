@@ -16,6 +16,10 @@ class HeadImport(TemplateView):
 #상체
 class UpperBodyImport(TemplateView):
     template_name = 'upperbody.html'
+    
+#머리+상체
+class HeadUpperImport(TemplateView):
+    template_name = 'headupper.html'
 
 #배
 class BellyImport(TemplateView):
@@ -24,6 +28,10 @@ class BellyImport(TemplateView):
 #골반
 class PelvisImport(TemplateView):
     template_name = 'pelvis.html'
+
+#배+골반
+class BellyPelvisImport(TemplateView):
+    template_name = 'bellypelvis.html'
 
 #팔
 class ArmImport(TemplateView):
@@ -111,6 +119,35 @@ class UpperBodySearch(ListView):
         context['selected_symptoms'] = self.request.GET.getlist('symptoms')
         return context
 
+class HeadUpperSearch(ListView):
+    model = Disease
+    template_name = 'headupper.html'
+    context_object_name = 'diseases'
+    def get_queryset(self):
+        symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
+        if not symptoms:
+            return Disease.objects.none()
+        symptom_matches = {}
+        for symptom in symptoms:
+            queries = [Q(**{f'Symptom_{i}': symptom}) for i in range(1, 18)] # Symptom 필드 검색
+            combined_query = queries.pop(0)
+            for query in queries:
+                combined_query |= query         
+            matching_diseases = Disease.objects.filter(combined_query)
+            for disease in matching_diseases:
+                if disease in symptom_matches:
+                    symptom_matches[disease] += 1
+                else:
+                    symptom_matches[disease] = 1
+        sorted_diseases = sorted(symptom_matches.items(), key=lambda x: x[1], reverse=True)
+        top_diseases = [disease for disease, _ in sorted_diseases[:1]]
+        return top_diseases
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['head_upper_symptoms'] = HeadUpperSymptoms.objects.all()
+        context['selected_symptoms'] = self.request.GET.getlist('symptoms')
+        return context
+
 class BellySearch(ListView):
     model = Disease
     template_name = 'belly.html'
@@ -166,6 +203,35 @@ class PelvisSearch(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['pelvis_symptoms'] = PelvisSymptoms.objects.all()
+        context['selected_symptoms'] = self.request.GET.getlist('symptoms')
+        return context
+
+class BellyPelvisSearch(ListView):
+    model = Disease
+    template_name = 'bellypelvis.html'
+    context_object_name = 'diseases'
+    def get_queryset(self):
+        symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
+        if not symptoms:
+            return Disease.objects.none()
+        symptom_matches = {}
+        for symptom in symptoms:
+            queries = [Q(**{f'Symptom_{i}': symptom}) for i in range(1, 18)] # Symptom 필드 검색
+            combined_query = queries.pop(0)
+            for query in queries:
+                combined_query |= query         
+            matching_diseases = Disease.objects.filter(combined_query)
+            for disease in matching_diseases:
+                if disease in symptom_matches:
+                    symptom_matches[disease] += 1
+                else:
+                    symptom_matches[disease] = 1
+        sorted_diseases = sorted(symptom_matches.items(), key=lambda x: x[1], reverse=True)
+        top_diseases = [disease for disease, _ in sorted_diseases[:1]]
+        return top_diseases
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['belly_pelvis_symptoms'] = BellyPelvisSymptoms.objects.all()
         context['selected_symptoms'] = self.request.GET.getlist('symptoms')
         return context
 
