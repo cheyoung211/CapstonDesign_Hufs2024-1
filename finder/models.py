@@ -77,3 +77,13 @@ class FootSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
     def __str__(self) -> str:
         return self.Symptom
+
+class HeadUpperSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom
+
+class BellyPelvisSymptoms(models.Model):
+    Symptom = models.CharField(max_length=100)
+    def __str__(self) -> str:
+        return self.Symptom

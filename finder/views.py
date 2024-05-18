@@ -52,7 +52,7 @@ class FootImport(TemplateView):
 # 배->상중하
 # 상체->목 어깨 가슴
 
-
+# 이하 세부 부위별 Search
 class HeadSearch(ListView):
     model = Disease
     template_name = 'head.html'
