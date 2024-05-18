@@ -17,4 +17,11 @@ urlpatterns = [
     path('leg/onlyleg/', views.OnlyLegImport.as_view(), name="onlyleg"),
     path('leg/foot/', views.FootImport.as_view(), name="foot"),
     path('headsearch/', views.HeadSearch.as_view(), name='headsearch'),
+    path('upperbodysearch/', views.UpperBodySearch.as_view(), name='upperbodysearch'),
+    path('bellysearch/', views.BellySearch.as_view(), name='bellysearch'),
+    path('pelvissearch/', views.PelvisSearch.as_view(), name='pelvissearch'),
+    path('onlyarmsearch/', views.OnlyArmSearch.as_view(), name='onlyarmsearch'),
+    path('handsearch/', views.HandSearch.as_view(), name='handsearch'),
+    path('onlylegsearch/', views.OnlyLegSearch.as_view(), name='onlylegsearch'),
+    path('footsearch/', views.FootSearch.as_view(), name='footsearch'),
 ]
