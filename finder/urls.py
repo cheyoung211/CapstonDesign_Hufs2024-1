@@ -6,6 +6,7 @@ app_name = "finder"
 
 urlpatterns = [
     path('', views.finderimport.as_view(), name="finder"),
+    path('map/', views.Mapimport.as_view(), name="map"),
     path('headupper/', views.HeadUpperImport.as_view(), name="headupper"),
     path('headupper/head/', views.HeadImport.as_view(), name="head"),
     path('headupper/upperbody/', views.UpperBodyImport.as_view(), name="upperbody"),

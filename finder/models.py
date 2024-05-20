@@ -40,50 +40,50 @@ class Symptom(models.Model):
 
 class HeadSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class UpperbodySymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class BellySymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class PelvisSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class OnlyArmSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class HandSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class OnlyLegSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class FootSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class HeadUpperSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom
 
 class BellyPelvisSymptoms(models.Model):
     Symptom = models.CharField(max_length=100)
-    def __str__(self) -> str:
+    def __str__(self):
         return self.Symptom

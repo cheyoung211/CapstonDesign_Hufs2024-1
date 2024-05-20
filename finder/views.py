@@ -9,6 +9,9 @@ from .models import *
 class finderimport(TemplateView):
     template_name = 'finder.html'
 
+class Mapimport(TemplateView):
+    template_name = 'map.html'
+
 #머리
 class HeadImport(TemplateView):
     template_name = 'head.html'
