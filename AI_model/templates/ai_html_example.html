@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wound Prediction</title>
+</head>
+<body>
+    <h1>Upload an Image for Wound Prediction</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="wound_image" required />
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/predict/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('result').innerText = 'Error: ' + data.error;
+                } else {
+                    document.getElementById('result').innerText = 'Prediction: ' + data.result;
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').innerText = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>

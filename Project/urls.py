@@ -23,4 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.homeimport.as_view(), name="home"),
     path('finder/', include('finder.urls')),
+    path('AI_app/', include('AI_app.urls')),
 ]
