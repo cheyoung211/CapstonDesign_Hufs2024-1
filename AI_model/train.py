@@ -13,8 +13,8 @@ import pickle
 import time
 #from pl.loggers import TensorBoardLogger
 
-dataset_path = 'C:/Users/MATH-1/python_file/data_file/Wound_dataset'
-root_path = 'C:/Users/MATH-1/python_file/data_file/'
+dataset_path = 'Your data path'
+root_path = 'Path for new data'
 
 #처음 학습시킬때만 아래 코드를 실행해서 파일을 저장
 #train_img_list, train_label_list, test_img_list, test_label_list = data_prepare(dataset_path, root_path)

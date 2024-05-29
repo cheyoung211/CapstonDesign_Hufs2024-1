@@ -7,8 +7,8 @@ import pytorch_lightning as pl
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from augmentation import data_augmentation
 
-dataset_path = 'C:/Users/MATH-1/python_file/data_file/Wound_dataset'
-root_path = 'C:/Users/MATH-1/python_file/data_file/'
+dataset_path = 'Your data path'
+root_path = 'Path for new data'
 
 #data를 train, test용으로 나눌 폴더 만들기
 os.makedirs(root_path+'data/', exist_ok=True)
