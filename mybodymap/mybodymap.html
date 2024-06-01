@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Body Map</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="screen1">
+        <h2 style="color: #44bcae;">내 손안의 병원 진단 가이드</h2>
+        <h1 style="color: #082d48; font-size: 36px; left: 10px;">마이 바디맵</h1>
+        <img src="image.file/mainlogo.png" alt="mainlogo">
+        <button onclick="nextScreen('screen2')">병원 검색 시작하기</button>
+    </div>
+
+    <div class="container" id="screen2" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 16.6%;"></div>
+        </div>
+        <h1>성별과 생년월일을 입력하세요</h1>
+        <select id="gender-select">
+            <option value="">Select an option</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="date" placeholder="dd / mm / yyyy">
+        <button onclick="nextScreenByGender()">다음</button>
+        <button onclick="prevScreen('screen1')">처음으로</button>
+    </div>
+
+    <div class="container" id="male_screen" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 33.2%;"></div>
+        </div>
+        <h1>증상이 있는 부분을 선택해 주세요</h1>
+        <div class="body-map">
+            <img src="image.file/male.png" alt="Body Image" usemap="#bodymap_male">
+            <map name="bodymap_male">
+                <area shape="rect" coords="80,15,130,80" alt="Head" onclick="nextScreen('head_male')">
+                <area shape="rect" coords="70,85,158,152" alt="Chest" onclick="nextScreen('chest_male')">
+                <area shape="rect" coords="70,155,150,230" alt="Stomach" onclick="nextScreen('stomach_male')">
+                <area shape="rect" coords="38,85,68,300" alt="Left Arm" onclick="nextScreen('arm_male')">
+                <area shape="rect" coords="159,70,188,300" alt="Right Arm" onclick="nextScreen('arm_male')">
+                <area shape="rect" coords="65,233,100,800" alt="Left Leg" onclick="nextScreen('leg_male')">
+                <area shape="rect" coords="101,233,150,800" alt="Right Leg" onclick="nextScreen('leg_male')">
+            </map>
+        </div>
+        <button onclick="prevScreen('screen2')">이전으로</button>
+    </div>
+
+    <div class="container" id="female_screen" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 33.2%;"></div>
+        </div>
+        <h1>증상이 있는 부분을 선택해 주세요</h1>
+        <div class="body-map">
+            <img src="image.file/female.png" alt="Body Image" usemap="#bodymap_female">
+            <map name="bodymap_female">
+                <area shape="rect" coords="80,15,130,80" alt="Head" onclick="nextScreen('head_female')">
+                <area shape="rect" coords="70,85,158,152" alt="Chest" onclick="nextScreen('chest_female')">
+                <area shape="rect" coords="70,155,150,230" alt="Stomach" onclick="nextScreen('stomach_female')">
+                <area shape="rect" coords="38,85,68,300" alt="Left Arm" onclick="nextScreen('arm_female')">
+                <area shape="rect" coords="159,70,188,300" alt="Right Arm" onclick="nextScreen('arm_female')">
+                <area shape="rect" coords="65,233,100,800" alt="Left Leg" onclick="nextScreen('leg_female')">
+                <area shape="rect" coords="101,233,150,800" alt="Right Leg" onclick="nextScreen('leg_female')">
+            </map>
+        </div>
+        <button onclick="prevScreen('screen2')">이전으로</button>
+    </div>
+
+    <div class="container" id="head_male" style="display: none;">
+        <h1>머리 (남성)</h1>
+        <img src="image.file/Head.png" alt="head_male" style="height:130px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('male_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="chest_male" style="display: none;">
+        <h1>가슴 (남성)</h1>
+        <img src="image.file/chest.png" alt="chest_male" style="height:150px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('male_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="stomach_male" style="display: none;">
+        <h1>배 (남성)</h1>
+        <img src="image.file/stomach.png" alt="stomach_male" style="height:200px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('male_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="arm_male" style="display: none;">
+        <h1>팔 (남성)</h1>
+        <img src="image.file/arm.png" alt="arm_male" style="height:300px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('male_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="leg_male" style="display: none;">
+        <h1>다리 (남성)</h1>
+        <img src="image.file/leg.png" alt="leg_male" style="height:300px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('male_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="head_female" style="display: none;">
+        <h1>머리 (여성)</h1>
+        <!-- 부위에 대한 상세 내용 -->
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('female_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="chest_female" style="display: none;">
+        <h1>가슴 (여성)</h1>
+        <!-- 부위에 대한 상세 내용 -->
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('female_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="stomach_female" style="display: none;">
+        <h1>배 (여성)</h1>
+        <!-- 부위에 대한 상세 내용 -->
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('female_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="arm_female" style="display: none;">
+        <h1>팔 (여성)</h1>
+        <!-- 부위에 대한 상세 내용 -->
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('female_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="leg_female" style="display: none;">
+        <h1>다리 (여성)</h1>
+        <!-- 부위에 대한 상세 내용 -->
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button class="prev-button" onclick="prevScreen('female_screen')">이전으로</button>
+    </div>
+
+    <div class="container" id="upload" style="display: none;">
+        <h1>사진 업로드</h1>
+        <input type="file" accept="image/*">
+        <button onclick="nextScreen('symptom_selection')">다음</button>
+        <button onclick="prevScreen('screen2')">이전으로</button>
+    </div>
+
+    <div class="container" id="symptom_selection" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 66.4%;"></div>
+        </div>
+        <h1>해당되는 증상을 선택해 주세요</h1><br>
+        <div class="symptoms">
+            <div class="symptom-row">
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom1" name="symptom" value="멍">
+                    <label for="symptom1">😨멍</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom2" name="symptom" value="가려움">
+                    <label for="symptom2">🫨가려움</label>
+                </div>
+            </div>
+            <div class="symptom-row">
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom3" name="symptom" value="피부발진">
+                    <label for="symptom3">🥵피부발진</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom4" name="symptom" value="물집">
+                    <label for="symptom4">🫠물집</label>
+                </div>
+            </div>
+            <div class="symptom-row">
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom5" name="symptom" value="관절통">
+                    <label for="symptom5">😣관절통</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom6" name="symptom" value="감각이상">
+                    <label for="symptom6">😵‍💫감각이상</label>
+                </div>
+            </div>
+            <div class="symptom-row">
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom7" name="symptom" value="근육약화">
+                    <label for="symptom7">🥲근육약화</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom8" name="symptom" value="근육통">
+                    <label for="symptom8">😣근육통</label>
+                </div>
+            </div>
+            <div class="symptom-row">
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom9" name="symptom" value="골절">
+                    <label for="symptom9">🤕골절</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="symptom10" name="symptom" value="출혈">
+                    <label for="symptom10">🩸출혈</label><br>
+                </div>
+            </div>
+        </div>
+        <button onclick="reviewSymptoms()">다음</button>
+        <button onclick="prevScreen('screen2')">이전으로</button>
+    </div>
+    <div class="container" id="symptom_review" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 83%;"></div>
+        </div>
+        <h1>이러한 증상이 맞나요?</h1>
+        <img src="image.file/symtoms_image.png" alt="Symptoms Image">
+        <p id="selected-symptoms"></p>
+        <button onclick="nextScreen('screen7')">네 맞아요</button>
+        <button onclick="prevScreen('symptom_selection')">처음부터 다시 진단하기</button>
+    </div>
+
+    <div class="container" id="screen7" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 100%;"></div>
+        </div>
+        <h1>강남구 대치동</h1>
+        <div class="hospital-info">
+            <div>
+                <h2>다나아 정형외과</h2>
+                <p>서울 강남구 선릉로 404</p>
+                <p>1234-5678</p>
+                <p>정형외과 전문의 4명 외 전문의 2명</p>
+                <p>일반진료 18:00에 진료 종료</p>
+            </div>
+            <div>
+                <h2>싹나아 정형외과</h2>
+                <p>서울 강남구 선릉로 411</p>
+                <p>1234-5678</p>
+                <p>정형외과 전문의 2명 외 전문의 2명</p>
+                <p>일반진료 18:00에 진료 종료</p>
+            </div>
+        </div>
+        <button onclick="nextScreen('screen8')">네 맞아요</button>
+        <button onclick="prevScreen('screen1')">처음부터 다시 진단하기</button>
+    </div>
+
+    <div class="container" id="screen8" style="display: none;">
+        <h1>병원 검색에 만족하셨나요?</h1>
+        <div class="feedback">
+            <span onclick="feedback('Thank you')">😊</span>
+            <span onclick="feedback('Thank you')">😞</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
