@@ -92,7 +92,7 @@ class VIT_Encoder(pl.LightningModule):
         super().__init__()
         self.loss = []
         self.Encoder = nn.Sequential(
-            TransformerEncoder(n_layers = 5),
+            TransformerEncoder(n_layers = 7),
             #Reduce('b n e -> b e', reduction='mean')
         )
         self.final_layer = nn.Linear(192, 7)
