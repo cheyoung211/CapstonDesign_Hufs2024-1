@@ -32,3 +32,23 @@ function reviewSymptoms() {
     symptomList.innerHTML = Array.from(selectedSymptoms).map(symptom => symptom.value).join(', ');
     nextScreen('symptom_review');
 }
+
+document.getElementById('woundImage').addEventListener('change', function() {
+    var form = document.getElementById('uploadForm');
+    var formData = new FormData(form);
+    fetch('/predict/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            document.getElementById('result').innerText = 'Error: ' + data.error;
+        } else {
+            document.getElementById('result').innerText = 'Prediction: ' + data.result;
+        }
+    })
+    .catch(error => {
+        document.getElementById('result').innerText = 'Error: ' + error;
+    });
+});
