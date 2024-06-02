@@ -151,9 +151,12 @@
 
     <div class="container" id="upload" style="display: none;">
         <h1>사진 업로드</h1>
-        <input type="file" accept="image/*">
-        <button onclick="nextScreen('symptom_selection')">다음</button>
-        <button onclick="prevScreen('screen2')">이전으로</button>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="wound_image" id="woundImage" required />
+            <button onclick="nextScreen('symptom_selection')">다음</button>
+            <button onclick="prevScreen('screen2')">처음부터 다시 진단하기</button>
+        </form>
+        <div id="result"></div>
     </div>
 
     <div class="container" id="symptom_selection" style="display: none;">
