@@ -15,10 +15,10 @@ urlpatterns = [
     path('bellypelvis/pelvis/', views.PelvisImport.as_view(), name="Pelvis"),
     path('arm/', views.ArmImport.as_view(), name="arm"),
     path('arm/onlyarm/', views.OnlyArmImport.as_view(), name="onlyarm"),
-    path('arm/hand/', views.HandImport.as_view(), name="hand"),
+    # path('arm/hand/', views.HandImport.as_view(), name="hand"),
     path('leg/', views.LegImport.as_view(), name="leg"),
     path('leg/onlyleg/', views.OnlyLegImport.as_view(), name="onlyleg"),
-    path('leg/foot/', views.FootImport.as_view(), name="foot"),
+    # path('leg/foot/', views.FootImport.as_view(), name="foot"),
     #이하 찾는 부분
     path('headuppersearch/', views.HeadUpperSearch.as_view(), name='headuppersearch'),
     path('headsearch/', views.HeadSearch.as_view(), name='headsearch'),
@@ -31,7 +31,7 @@ urlpatterns = [
     path('bellypelvissearch/belly/', views.BellySearch.as_view(), name='bellysearch'),
     path('bellypelvissearch/pelvis/', views.PelvisSearch.as_view(), name='pelvissearch'),
     path('onlyarmsearch/', views.OnlyArmSearch.as_view(), name='onlyarmsearch'),
-    path('handsearch/', views.HandSearch.as_view(), name='handsearch'),
+    # path('handsearch/', views.HandSearch.as_view(), name='handsearch'),
     path('onlylegsearch/', views.OnlyLegSearch.as_view(), name='onlylegsearch'),
-    path('footsearch/', views.FootSearch.as_view(), name='footsearch'),
+    # path('footsearch/', views.FootSearch.as_view(), name='footsearch'),
 ]
