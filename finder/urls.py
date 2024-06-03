@@ -12,14 +12,12 @@ urlpatterns = [
     path('belly/', views.BellyImport.as_view(), name="belly"),
     path('pelvis/', views.PelvisImport.as_view(), name="Pelvis"),
     path('arm/', views.ArmImport.as_view(), name="arm"),
-    path('arm/onlyarm/', views.OnlyArmImport.as_view(), name="onlyarm"),
     path('leg/', views.LegImport.as_view(), name="leg"),
-    path('leg/onlyleg/', views.OnlyLegImport.as_view(), name="onlyleg"),
     #이하 찾는 부분
     path('headsearch/', views.HeadSearch.as_view(), name='headsearch'),
     path('upperbodysearch/', views.UpperBodySearch.as_view(), name='upperbodysearch'),
     path('bellysearch/', views.BellySearch.as_view(), name='bellysearch'),
     path('pelvissearch/', views.PelvisSearch.as_view(), name='pelvissearch'),
-    path('armsearch/', views.ArmSearch.as_view(), name='onlyarmsearch'),
-    path('legsearch/', views.LegSearch.as_view(), name='onlylegsearch'),
+    path('armsearch/', views.ArmSearch.as_view(), name='armsearch'),
+    path('legsearch/', views.LegSearch.as_view(), name='legsearch'),
 ]

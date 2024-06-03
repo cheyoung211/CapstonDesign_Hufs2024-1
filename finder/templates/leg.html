@@ -7,7 +7,7 @@
 </head>
 <body>
     <!-- 증상 선택 폼 -->
-    <form action="{% url 'finder:onlylegsearch' %}" method="get">
+    <form action="{% url 'finder:legsearch' %}" method="get">
         {% for symptom in only_leg_symptoms %}
             <label>
                 <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
