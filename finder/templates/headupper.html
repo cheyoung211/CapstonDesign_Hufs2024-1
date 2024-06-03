@@ -8,7 +8,7 @@
 <body>
     <a href="head">머리</a>
     <a href="upperbody">상체</a>
-    <!-- 증상 선택 폼 -->
+    {% comment %} <!-- 증상 선택 폼 -->
     <form action="{% url 'finder:headuppersearch' %}" method="get">
         {% for symptom in head_upper_symptoms %}
             <label>
@@ -30,6 +30,6 @@
         </ul>
     {% else %}
         <p>No matching diseases found.</p>
-    {% endif %}
+    {% endif %} {% endcomment %}
 </body>
 </html>
