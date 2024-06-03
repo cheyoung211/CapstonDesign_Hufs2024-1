@@ -172,5 +172,5 @@ class VIT_Encoder(pl.LightningModule):
         img = transform(img).unsqeeze(0).to(self.device)
         logits = self(img)
         preds = torch.argmax(logis, dim=1).item()
-        labels = ['찰과상','멍','화상','베','내성발톱','열상','자상']
+        labels = ['찰과상','멍','화상','배','내성발톱','열상','자상']
         return labels[preds]

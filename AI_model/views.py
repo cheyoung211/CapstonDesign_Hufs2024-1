@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-import json
-import joblib
 from django.http import JsonResponse
 from django.views import View
 from PIL import Image
-import io
+import pickle
 
 class homeimport(TemplateView):
     template_name = 'home.html'
@@ -23,14 +21,25 @@ class WoundPredictionView(View):
             image_array = np.array(image).reshape(1,-1)
             
             #train된 모델 import
-            model = jobbib.load('model.plk')
+            load_model = pickle.load(open('model.plk','rb'))
 
+            #prediction_dict
+            prediction_dict = [{'찰과상':'url',
+                                '멍':'url',
+                                '화상':'url',
+                                '배':'url',
+                                '내성발톱':'url',
+                                '열상':'url',
+                                '자상':'url'}]
+            
             #예측
-            predict = model.predict(image_array)
+            predict = load_model.predict(image_array)
             prediction_result = prediction[0]
+
 
             #상처 분류 결과
             return JsonResponse({'result': prediction_result})
+            
 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status = 500})
