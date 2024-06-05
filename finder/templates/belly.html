@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disease Finder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <!-- 증상 선택 폼 -->
+    {% comment %} <div class="container" id="stomach_male" style="display: none;"> {% endcomment %}
+        <h1>복부 (남성)</h1>
+        <img src="{% static 'image.file/stomach.png' %}" alt="stomach_male" style="height:200px; width: auto;">
     <form action="{% url 'finder:bellysearch' %}" method="get">
         {% for symptom in belly_symptoms %}
             <label>
@@ -15,19 +20,22 @@
                 {{ symptom.Symptom }}
             </label><br>
         {% endfor %}
-        <button type="submit">Search Diseases</button>
+        <button type="submit">다음</button>
     </form>
-
+    <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+    <button class="prev-button" onclick="location.href='/finder'">이전으로</button>
     <!-- 검색 결과 표시 -->
     <h1>Disease Matches</h1>
     {% if diseases %}
         <ul>
             {% for disease in diseases %}
-                <li>{{ disease }} - {{ disease.Hospital }} - Matches</li>
+                <li>{{ disease }} - {{ disease.Hospital }}</li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No matching diseases found.</p>
+        <p>결과 없음</p>
     {% endif %}
+    </div>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
