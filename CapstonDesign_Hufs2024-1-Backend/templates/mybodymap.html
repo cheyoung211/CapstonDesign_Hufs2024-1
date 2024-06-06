@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Body Map</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container" id="screen1">
+        <h2 style="color: #44bcae;">내 손안의 병원 진단 가이드</h2>
+        <h1 style="color: #082d48; font-size: 36px; left: 10px;">마이 바디맵</h1>
+        <img src="{% static 'image.file/mainlogo.png' %}" alt="mainlogo">
+        <button onclick="nextScreen('screen2')">병원 검색 시작하기</button>
+    </div>
+
+    <div class="container" id="screen2" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 16.6%;"></div>
+        </div>
+        <h1>성별과 생년월일을 입력하세요</h1>
+        <select id="gender-select">
+            <option value="">Select an option</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="date" placeholder="dd / mm / yyyy">
+        <button onclick="location.href='finder'">다음</button>
+        <button class="grey-button" onclick="prevScreen('screen1')">처음으로</button>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+
+
+{% comment %} "location.href='finder'" {% endcomment %}

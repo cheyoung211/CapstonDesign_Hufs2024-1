@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Body Map</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container" id="male_screen"> 
+        <div class="progress-bar">
+            <div class="progress" style="width: 33.2%;"></div>
+        </div>
+        <h1>증상이 있는 부분을 선택해 주세요</h1>
+        <div class="body-map">
+            <img src="{% static 'image.file/male.png' %}" alt="Body Image" usemap="#bodymap_male">
+            <map name="bodymap_male">
+                <area shape="rect" coords="80,15,130,80" alt="Head" onclick="location.href='head'">
+                <area shape="rect" coords="70,85,158,152" alt="Chest" onclick="location.href='upperbody'">
+                <area shape="rect" coords="70,155,150,230" alt="Stomach" onclick="location.href='belly'">
+                <area shape="rect" coords="38,85,68,300" alt="Left Arm" onclick="location.href='arm'">
+                <area shape="rect" coords="159,70,188,300" alt="Right Arm" onclick="location.href='arm'">
+                <area shape="rect" coords="65,233,100,800" alt="Left Leg" onclick="location.href='leg'">
+                <area shape="rect" coords="101,233,150,800" alt="Right Leg" onclick="location.href='leg'">
+            </map>
+        </div>
+        <button class="prev-button" onclick="location.href='/'">이전으로</button>
+    </div>
+    
+    <div class="container" id="female_screen" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress" style="width: 33.2%;"></div>
+        </div>
+        <h1>증상이 있는 부분을 선택해 주세요</h1>
+        <div class="body-map">
+            <img src="{% static 'image.file/female.png' %}" alt="Body Image" usemap="#bodymap_female">
+            <map name="bodymap_female">
+                <area shape="rect" coords="80,15,130,80" alt="Head" onclick="nextScreen('head_female')">
+                <area shape="rect" coords="70,85,158,152" alt="Chest" onclick="nextScreen('chest_female')">
+                <area shape="rect" coords="70,155,150,230" alt="Stomach" onclick="nextScreen('stomach_female')">
+                <area shape="rect" coords="38,85,68,300" alt="Left Arm" onclick="nextScreen('arm_female')">
+                <area shape="rect" coords="159,70,188,300" alt="Right Arm" onclick="nextScreen('arm_female')">
+                <area shape="rect" coords="65,233,100,800" alt="Left Leg" onclick="nextScreen('leg_female')">
+                <area shape="rect" coords="101,233,150,800" alt="Right Leg" onclick="nextScreen('leg_female')">
+            </map>
+        </div>
+        <button class="prev-button" onclick="location.href='/'">이전으로</button>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="male_screen" style="display: none;">
+    <h2>url 테스트 페이지, 여기서 각 육체로 들어가는 페이지 시작</h2>
+    <h2>이 부분에 우선 전신도를 두는 것을 생각하고 있습니다</h2>
+    <a href="head">머리</a>
+    <a href="upperbody">상체</a>
+    <a href="belly">배</a>
+    <a href="pelvis">골반</a>
+    <a href="arm">팔</a>
+    <a href="leg">다리</a>
+    </div>
+</body>
+</html> {% endcomment %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Finder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container" id="chest_male">
+        <h1>가슴 (남성)</h1>
+        <img src="{% static 'image.file/chest.png' %}" alt="chest_male" style="height:150px; width: auto;">
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button class="prev-button" onclick="location.href='/finder/upperbodyhospitalsearch'">이동</button>
+        <button class="prev-button grey-button" onclick="location.href='/finder'">이전으로</button>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
