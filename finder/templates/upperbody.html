@@ -11,30 +11,9 @@
     {% comment %} <div class="container" id="chest_male" style="display: none;"> {% endcomment %}
         <h1>가슴 (남성)</h1>
         <img src="{% static 'image.file/chest.png' %}" alt="chest_male" style="height:150px; width: auto;">
-    <!-- 증상 선택 폼 -->
-    <form action="{% url 'finder:upperbodysearch' %}" method="get">
-        {% for symptom in upper_body_symptoms %}
-            <label>
-                <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
-                       {% if symptom.Symptom in selected_symptoms %} checked {% endif %}>
-                {{ symptom.Symptom }}
-            </label><br>
-        {% endfor %}
-        <button type="submit">다음</button>
-    </form>
+        <button class="prev-button" onclick="location.href='/finder/upperbodyhospitalsearch'">이동</button>
     <button class="camera-button" onclick="nextScreen('upload')">📷</button>
     <button class="prev-button" onclick="location.href='/finder'">이전으로</button>
-    <!-- 검색 결과 표시 -->
-    <h1>질병 검색 결과</h1>
-    {% if diseases %}
-        <ul>
-            {% for disease in diseases %}
-                <li>{{ disease }} - {{ disease.Hospital }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>결과 없음</p>
-    {% endif %}
     </div>
     <script src="{% static 'script.js' %}"></script>
 </body>

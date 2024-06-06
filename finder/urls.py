@@ -20,4 +20,9 @@ urlpatterns = [
     path('pelvissearch/', views.PelvisSearch.as_view(), name='pelvissearch'),
     path('armsearch/', views.ArmSearch.as_view(), name='armsearch'),
     path('legsearch/', views.LegSearch.as_view(), name='legsearch'),
+    path('headhospitalsearch/', views.headHospitalSearch.as_view() , name='headhospitalsearch'),
+    path('upperbodyhospitalsearch/', views.upperBodyHospitalSearch.as_view() , name='upperbodyhospitalsearch'),
+    path('bellyhospitalsearch/', views.bellyHospitalSearch.as_view() , name='bellyhospitalsearch'),
+    path('armhospitalsearch/', views.armHospitalSearch.as_view() , name='armhospitalsearch'),
+    path('leghospitalsearch/', views.legHospitalSearch.as_view() , name='leghospitalsearch'),
 ]

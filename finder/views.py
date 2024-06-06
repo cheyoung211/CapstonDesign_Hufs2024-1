@@ -56,6 +56,20 @@ class OnlyLegImport(TemplateView):
 class FootImport(TemplateView):
     template_name = 'foot.html'
 
+class headHospitalSearch(TemplateView):
+    template_name = 'headhospital.html'
+    
+class upperBodyHospitalSearch(TemplateView):
+    template_name = 'upperbodyhospital.html'
+
+class bellyHospitalSearch(TemplateView):
+    template_name = 'bellyhospital.html'
+
+class armHospitalSearch(TemplateView):
+    template_name = 'armhospital.html'
+
+class legHospitalSearch(TemplateView):
+    template_name = 'leghospital.html'
 
 # 머리, 상체, 복부, 골반, 팔, 다리
 # 팔->팔과 손
@@ -66,7 +80,7 @@ class FootImport(TemplateView):
 # 이하 세부 부위별 Search
 class HeadSearch(ListView):
     model = Disease
-    template_name = 'head.html'
+    template_name = 'headhospital.html'
     context_object_name = 'diseases'
     def get_queryset(self):
         symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
@@ -95,7 +109,7 @@ class HeadSearch(ListView):
 
 class UpperBodySearch(ListView):
     model = Disease
-    template_name = 'upperbody.html'
+    template_name = 'upperbodyhospital.html'
     context_object_name = 'diseases'
     def get_queryset(self):
         symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
@@ -153,7 +167,7 @@ class HeadUpperSearch(ListView):
 
 class BellySearch(ListView):
     model = Disease
-    template_name = 'belly.html'
+    template_name = 'bellyhospital.html'
     context_object_name = 'diseases'
     def get_queryset(self):
         symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
@@ -241,7 +255,7 @@ class BellyPelvisSearch(ListView):
 
 class ArmSearch(ListView):
     model = Disease
-    template_name = 'arm.html'
+    template_name = 'armhospital.html'
     context_object_name = 'diseases'
     def get_queryset(self):
         symptoms = self.request.GET.getlist('symptoms') # 사용자 입력
@@ -270,7 +284,7 @@ class ArmSearch(ListView):
 
 class LegSearch(ListView):
     model = Disease
-    template_name = 'leg.html'
+    template_name = 'leghospital.html'
     context_object_name = 'diseases'
     def get_queryset(self):
         symptoms = self.request.GET.getlist('symptoms') # 사용자 입력

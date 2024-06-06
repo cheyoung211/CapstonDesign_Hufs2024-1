@@ -8,33 +8,12 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <!-- 증상 선택 폼 -->
     {% comment %} <div class="container" id="arm_male" style="display: none;"> {% endcomment %}
         <h1>팔 (남성)</h1>
         <img src="{% static 'image.file/arm.png' %}" alt="arm_male" style="height:300px; width: auto;">
-    <form action="{% url 'finder:armsearch' %}" method="get">
-        {% for symptom in only_arm_symptoms %}
-            <label>
-                <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
-                       {% if symptom.Symptom in selected_symptoms %} checked {% endif %}>
-                {{ symptom.Symptom }}
-            </label><br>
-        {% endfor %}
-        <button type="submit">다음</button>
-    </form>
+        <button class="prev-button" onclick="location.href='/finder/armhospitalsearch'">이동</button>
     <button class="camera-button" onclick="nextScreen('upload')">📷</button>
     <button class="prev-button" onclick="location.href='/finder'">이전으로</button>
-    <!-- 검색 결과 표시 -->
-    <h1>Disease Matches</h1>
-    {% if diseases %}
-        <ul>
-            {% for disease in diseases %}
-                <li>{{ disease }} - {{ disease.Hospital }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>결과 없음</p>
-    {% endif %}
     </div>
     <script src="{% static 'script.js' %}"></script>
 </body>

@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disease Finder</title>
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <!-- 증상 선택 폼 -->
-    <form action="{% url 'finder:pelvissearch' %}" method="get">
-        {% for symptom in pelvis_symptoms %}
+    <h2>다리 검색</h2>
+    <form action="{% url 'finder:legsearch' %}" method="get">
+        {% for symptom in only_leg_symptoms %}
             <label>
                 <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
                        {% if symptom.Symptom in selected_symptoms %} checked {% endif %}>
                 {{ symptom.Symptom }}
             </label><br>
         {% endfor %}
-        <button type="submit">Search Diseases</button>
+        <button type="submit">다음</button>
     </form>
-
-    <!-- 검색 결과 표시 -->
     <h1>질병 검색 결과</h1>
     {% if diseases %}
         <ul>
             {% for disease in diseases %}
-                <li>{{ disease }} - {{ disease.Hospital }} - Matches</li>
+                <li>{{ disease }} - {{ disease.Hospital }}</li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No matching diseases found.</p>
+        <p>결과 없음</p>
     {% endif %}
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
