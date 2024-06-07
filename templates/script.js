@@ -52,3 +52,9 @@ document.getElementById('woundImage').addEventListener('change', function() {
         document.getElementById('result').innerText = 'Error: ' + error;
     });
 });
+
+document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        document.getElementById('symptomForm').submit();
+    });
+});

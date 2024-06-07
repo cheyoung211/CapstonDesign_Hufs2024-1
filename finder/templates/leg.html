@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    {% comment %} <div class="container" id="leg_male" style="display: none;"> {% endcomment %}
+    <div class="container" id="leg_male">
         <h1>다리 (남성)</h1>
         <img src="{% static 'image.file/leg.png' %}" alt="leg_male" style="height:300px; width: auto;">
-        <button class="prev-button" onclick="location.href='/finder/leghospitalsearch'">이동</button>
-    <button class="camera-button" onclick="nextScreen('upload')">📷</button>
-    <button class="prev-button" onclick="location.href='/finder'">이전으로</button>
+        <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+        <button class="prev-button" onclick="location.href='/finder/legsearch'">이동</button>
+        <button class="prev-button grey-button" onclick="location.href='/finder'">이전으로</button>
     </div>
     <script src="{% static 'script.js' %}"></script>
 </body>

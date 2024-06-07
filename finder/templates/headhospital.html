@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h2>머리 검색</h2>
+    <div class="container">
+    <h2>머리 증상을 선택해주세요</h2>
     <form action="{% url 'finder:headsearch' %}" method="get">
         {% for symptom in head_symptoms %}
             <label>
@@ -19,6 +20,7 @@
         {% endfor %}
         <button type="submit">다음</button>
     </form>
+    <button class="prev-button grey-button" onclick="location.href='/finder'">이전으로</button>
     <h1>질병 검색 결과</h1>
     {% if diseases %}
         <ul>
@@ -29,6 +31,7 @@
     {% else %}
         <p>결과 없음</p>
     {% endif %}
+    </div>
     <script src="{% static 'script.js' %}"></script>
 </body>
 </html>

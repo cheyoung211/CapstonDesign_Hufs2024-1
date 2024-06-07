@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h2>복부 검색</h2>
+    <div class="container" id="stomach_male">
+    <h2>복부 증상을 선택해주세요</h2>
     <form action="{% url 'finder:bellysearch' %}" method="get">
-        {% for symptom in belly_symptoms %}
+            {% for symptom in belly_symptoms %}
             <label>
                 <input type="checkbox" name="symptoms" value="{{ symptom.Symptom }}"
                        {% if symptom.Symptom in selected_symptoms %} checked {% endif %}>
@@ -19,6 +20,7 @@
         {% endfor %}
         <button type="submit">다음</button>
     </form>
+    <button class="prev-button grey-button" onclick="location.href='/finder'">이전으로</button>
     <h1>질병 검색 결과</h1>
     {% if diseases %}
         <ul>
@@ -29,6 +31,7 @@
     {% else %}
         <p>결과 없음</p>
     {% endif %}
+    </div>
     <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
