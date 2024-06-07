@@ -16,9 +16,7 @@ class WoundPredictionView(View):
         try:
             #upload된 파일 가져오기
             img_file = request.FILES['wound_image']
-            image = Image.open(img_file)
-            image = image.resize((224,224))
-            image_array = np.array(image).reshape(1,-1)
+            image = Image.open(img_file).convert('RGB')
             
             #train된 모델 import
             load_model = pickle.load(open('model.plk','rb'))
@@ -33,14 +31,20 @@ class WoundPredictionView(View):
                                 '자상':'url'}]
             
             #예측
-            predict = load_model.predict(image_array)
-            prediction_result = prediction[0]
-
-
-            #상처 분류 결과
-            return JsonResponse({'result': prediction_result})
+            prediction = load_model.predict(image)
+            pretictions = {
+                'error' : '0',
+                'message' : 'Successfull',
+                'prediction' : prediction,
+                'prediction_url' : prediction_dict[prediction]
+                }
             
 
         except Exception as e:
-            return JsonResponse({'error': str(e)}, status = 500})
+            predictions = {
+                'error' : '1',
+                'message' : str(e)
+                }
+
+        return Response(predictions)
             

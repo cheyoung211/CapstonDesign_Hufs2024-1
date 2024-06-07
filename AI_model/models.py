@@ -160,7 +160,7 @@ class VIT_Encoder(pl.LightningModule):
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=1e-3)
     
-    def predict(self, input_path):
+    def predict(self, img_array):
         self.eval()
         transform = transforms.Compose([
             transforms.Resize((224,224)),
@@ -168,7 +168,6 @@ class VIT_Encoder(pl.LightningModule):
             transforms.Normalize(mean = [0.485, 0.456, 0.406],
                                  std = [0.229, 0.224, 0.225])
         ])
-        img = Image.open(img_path).convert('RGB')
         img = transform(img).unsqeeze(0).to(self.device)
         logits = self(img)
         preds = torch.argmax(logis, dim=1).item()
