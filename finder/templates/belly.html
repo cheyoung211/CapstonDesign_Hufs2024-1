@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Finder</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container" id="stomach_male"> 
+        <h1>복부 (남성)</h1>
+        <img src="{% static 'image.file/stomach.png' %}" alt="stomach_male" style="height:200px; width: auto;">
+    <button class="camera-button" onclick="nextScreen('upload')">📷</button>
+    <button class="prev-button" onclick="location.href='/finder/bellysearch'">증상 선택하기</button>
+    <button class="prev-button grey-button" onclick="location.href='/finder'">이전으로</button>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
